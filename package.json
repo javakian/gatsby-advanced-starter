@@ -37,7 +37,8 @@
     "react-helmet": "^6.0.0",
     "react-share": "^4.1.0",
     "react-twitter-widgets": "^1.9.5",
-    "url-join": "^4.0.0"
+    "url-join": "^4.0.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "cli-glob": "^0.1.0",
@@ -73,11 +74,14 @@
     "lint:md": "remark content/",
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
-    "format:styles": "prettier '**/*.{css,scss}' --write"
+    "format:styles": "prettier '**/*.{css,scss}' --write",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "remarkConfig": {
     "plugins": [
       "remark-preset-lint-recommended"
     ]
-  }
+  },
+  "snyk": true
 }
